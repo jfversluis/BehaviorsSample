@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="clr-namespace:Xamarin.CommunityToolkit.Behaviors;assembly=Xamarin.CommunityToolkit" x:Class="BehaviorsSample.MainPage">
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" Margin="0,20,0,0" />
+        </Frame>
+        <ContentView Padding="10">
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     Spacing="20">
+            <Label Text="Click the button below to see it increment through the EventToCommand Behavior" />
+            <Label Text="{Binding ClickCount, StringFormat='{0} clicks'}" />
+            <Button Text="Click Me"
+                    TextColor="White"
+                    BackgroundColor="#2196F3">
+                <Button.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="Clicked" Command="{Binding ClickCommand}" />
+                </Button.Behaviors>
+            </Button>
+        </StackLayout>
+    </ContentView>
+    </StackLayout>
+</ContentPage>
